@@ -32,7 +32,7 @@ class RobertaClassifier:
         if os.path.exists(self.model_save_path):
             print("Loading saved model...")
             checkpoint = torch.load(self.model_save_path)
-            self.model.load_state_dict(checkpoint['model_state_dict'])
+            self.model.load_state_dict(checkpoint['model_state_dict'],strict=False)
             self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
             print("Model loaded successfully.")
         else:
